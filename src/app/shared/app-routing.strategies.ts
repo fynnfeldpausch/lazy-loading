@@ -16,7 +16,9 @@ export class NoPreloading implements PreloadingStrategy {
 
 export class DelayedPreloading implements PreloadingStrategy {
   preload(route: Route, fn: () => Observable<any>): Observable<any> {
-    return of(true).pipe(delay(5000)).pipe(flatMap(_ => fn()));
+    return of(true)
+      .pipe(delay(5000))
+      .pipe(flatMap(_ => fn()));
   }
 }
 
